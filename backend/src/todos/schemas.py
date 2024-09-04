@@ -4,7 +4,7 @@ from uuid import UUID
 from datetime import datetime
 
 class BaseTodo(BaseModel):
-    title: str
+    title: Optional[str] = "Title"
     description: Optional[str] = ""
     is_completed: Optional[bool] = False
 
@@ -12,7 +12,7 @@ class TodoCreate(BaseTodo):
     pass
 
 class TodoUpdate(BaseTodo):
-    title: Optional[str] = None
+    title: Optional[str] = "Title"
     description: Optional[str] = ""
     is_completed: Optional[bool] = False
 

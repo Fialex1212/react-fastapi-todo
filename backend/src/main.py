@@ -1,9 +1,9 @@
 from fastapi import FastAPI
 from .cors import add_cors
-from .database import Base, engine
+from .database import Base, engine, create_tables
 from .todos.routers import router as todos_router
 
-Base.metadata.create_all(bind=engine)
+create_tables()
 
 app = FastAPI()
 add_cors(app)

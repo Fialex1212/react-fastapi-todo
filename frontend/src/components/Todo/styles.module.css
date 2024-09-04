@@ -1,5 +1,5 @@
 .title{
-    font-size: 40px;
+    font-size: 64px;
     text-align: center;
     padding: 50px 0px;
 }
@@ -18,32 +18,33 @@
 .form__input{
     border-radius: 8px;
     border: 1px solid transparent;
-    padding: 0.6em 1.2em;
-    font-size: 1em;
+    padding: 6px 12px;
+    font-size: 24px;
     font-weight: 500;
     font-family: inherit;
-    background-color: #1a1a1a;
+    background-color: #707070;
     cursor: pointer;
     transition: border-color 0.25s;
     width: 400px;
+    height: 70px;
 }
 
+.form__input::placeholder{
+    color: #ffffffb6;
+}
 
 .form__button{
     border-radius: 8px;
     border: 1px solid transparent;
-    padding: 0.6em 1.2em;
-    font-size: 1em;
+    padding: 6px 12px;
+    font-size: 24px;
     font-weight: 500;
     font-family: inherit;
-    background-color: #1a1a1a;
+    background-color: #707070;
     cursor: pointer;
     transition: border-color 0.25s;
     width: 200px;
-}
-
-.form__button:hover{
-    border-color: #646cff;
+    height: 70px;
 }
 
 .form__button:focus,
@@ -60,15 +61,38 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    background-color: #1a1a1a;
+    align-items: center;
+    background-color: #707070;
     border-radius: 8px;
     border: 1px solid transparent;
     margin-bottom: 40px;
+    width: 100%;
+    height: 80px;
+}
+
+.todo__checkbox{
+    width: 40px;
+    height: 40px;
+}
+
+.todo__item .todo__checkbox:checked + .todo__text .todo__title,
+.todo__item .todo__checkbox:checked + .todo__text .todo__description{
+    text-decoration: line-through;
+    color: rgb(201, 201, 201);
 }
 
 .todo__text{
     display: flex;
     column-gap: 150px;
+    font-size: 22px;
+}
+
+.todo__description{
+    width: 200px;
+    max-width: 200px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .todo__trash{
@@ -95,4 +119,17 @@
 .todo__trash:hover::before {
     background-image: url("../../../public/trash-can-active.svg");
     transition: 0.3s ease;
+}
+
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
 }

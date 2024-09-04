@@ -1,39 +1,43 @@
 from fastapi import HTTPException
-from sqlalchemy.orm import Session
+from sqlalchemy.ext.asyncio import AsyncSession
 from .models import Todo as DBTodo
 from .schemas import TodoCreate, TodoUpdate
 from sqlalchemy.exc import IntegrityError
+from sqlalchemy.future import select
 
 
-def create_todo(
-    db: Session, 
+async def create_todo(
+    db: AsyncSession, 
     todo: TodoCreate
 ):
     db_todo = DBTodo(**todo.model_dump())
     db.add(db_todo)
-    db.commit()
-    db.refresh(db_todo)
+    await db.commit()
+    await db.refresh(db_todo)
     return db_todo
 
-def get_todo(
-    db: Session, 
+async def get_todo(
+    db: AsyncSession, 
     todo_id: str
 ):
-    return db.query(DBTodo).filter(DBTodo.id == todo_id).first()
+    db_todo = await db.get(DBTodo, todo_id)
+    return db_todo
 
-def get_todos(
-    db: Session, 
+async def get_todos(
+    db: AsyncSession, 
     skip: int = 0, 
     limit: int = 10
 ):
-    return db.query(DBTodo).offset(skip).limit(limit).all()
+    result = await db.execute(select(DBTodo).offset(skip).limit(limit))
+    db_todos = result.scalars().all()
+    return db_todos
 
-def update_todo(
-    db: Session, 
+async def update_todo(
+    db: AsyncSession, 
     todo_id: str, 
     todo_update: TodoUpdate
 ):
-    db_todo = db.query(DBTodo).filter(DBTodo.id == todo_id).first()
+    db_todo = await db.get(DBTodo, todo_id)
     if db_todo:
         if todo_update.title is not None:
             db_todo.title = todo_update.title
@@ -43,20 +47,20 @@ def update_todo(
             db_todo.is_completed = todo_update.is_completed
 
         try:
-            db.commit()
-            db.refresh(db_todo)
+            await db.commit()
+            await db.refresh(db_todo)
             return db_todo
         except IntegrityError:
-            db.rollback()
+            await db.rollback()
             raise HTTPException(status_code=400, detail="Integrity error occurred")
     return db_todo
 
-def delete_todo(
-    db: Session, 
+async def delete_todo(
+    db: AsyncSession, 
     todo_id: str
 ):
-    db_todo = db.query(DBTodo).filter(DBTodo.id == todo_id).first()
+    db_todo = await db.get(DBTodo, todo_id)
     if db_todo:
-        db.delete(db_todo)
-        db.commit()
+        await db.delete(db_todo)
+        await db.commit()
     return db_todo
