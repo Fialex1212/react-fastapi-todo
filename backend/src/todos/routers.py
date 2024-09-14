@@ -26,11 +26,11 @@ async def get_todo_endpoint(
     return db_todo
 
 
-@router.get("/get_todos", response_model=list[Todo])
+@router.get("/list", response_model=list[Todo])
 async def get_todos_endpoint(
     db: Annotated[AsyncSession, Depends(get_db)],
     skip: Annotated[int, Query(ge=0)] = 0,
-    limit: Annotated[int, Query(le=100)] = 10,
+    limit: Annotated[int, Query(le=1000)] = 100,
 ):  
     db_todos = await get_todos(db=db, skip=skip, limit=limit)
     return db_todos
@@ -39,7 +39,7 @@ async def get_todos_endpoint(
 @router.put("/update/{todo_id}")
 async def update_todo_endpoint(
     todo_id: str,
-    todo_update: Annotated[TodoUpdate, Depends()],
+    todo_update: TodoUpdate,
     db: Annotated[AsyncSession, Depends(get_db)],
 ):
     db_todo = await update_todo(db=db, todo_id=todo_id, todo_update=todo_update)

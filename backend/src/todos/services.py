@@ -26,7 +26,7 @@ async def get_todo(
 async def get_todos(
     db: AsyncSession, 
     skip: int = 0, 
-    limit: int = 10
+    limit: int = 100
 ):
     result = await db.execute(select(DBTodo).offset(skip).limit(limit))
     db_todos = result.scalars().all()
