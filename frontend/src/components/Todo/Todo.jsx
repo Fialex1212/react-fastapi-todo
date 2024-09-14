@@ -18,7 +18,6 @@ const Todo = () => {
       const response = await axios.get(`${PORT}/todo/list`);
       console.log(response.data); // Check the response data here
       setTodoData(response.data);
-      toast.success("Todos successfully loaded!!!");
     } catch (error) {
       console.error("Error: ", error);
       toast.error("Something went wrong: ", error);
@@ -70,9 +69,10 @@ const Todo = () => {
   }, []);
 
   return (
-    <section className={css.section}>
+    <section>
       <div className="container">
         <h1 className={css.title}>Todo app</h1>
+        <Toaster />
         <TodoForm addTodo={addTodo} />
         <TodoList
           todoData={todoData}

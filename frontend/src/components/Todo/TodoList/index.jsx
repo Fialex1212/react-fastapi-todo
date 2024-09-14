@@ -21,7 +21,7 @@ const TodoList = ({ todoData, deleteTodo, updateTodo }) => {
             <h2 className={css.todo__title}>{title}</h2>
             <p className={css.todo__description}>{description}</p>
           </div>
-          <button onAbort={() => {udpateTodo(id)}} className={css.todo__edit}>
+          <button onClick={() => {udpateTodo(id)}} className={css.todo__edit}>
             Edit
           </button>
           <button
