@@ -1,22 +1,22 @@
 import { useState, useEffect } from "react";
 import css from "./styles.module.css";
-import Popup from "../Popup/Popup";
 import TodoList from "./TodoList";
 import { PORT } from "../../utils/constans";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
+import TodoForm from "./TodoForm";
 
 const Todo = () => {
   const [todoData, setTodoData] = useState([]);
-  const [selectedTodo, setSelectedTodo] = useState(null);
+  // const [selectedTodo, setSelectedTodo] = useState(null);
 
   console.log(todoData);
-  
 
   //Function for load toods
   const loadTodos = async () => {
     try {
       const response = await axios.get(`${PORT}/todo/list`);
+      console.log(response.data); // Check the response data here
       setTodoData(response.data);
       toast.success("Todos successfully loaded!!!");
     } catch (error) {
@@ -58,7 +58,6 @@ const Todo = () => {
     try {
       const response = await axios.put(`${PORT}/todo/update/${id}`);
       console.log(response.data);
-      
     } catch (error) {
       console.error("Error: ", error);
       toast.error("Something went wrong: ", error);
@@ -74,6 +73,7 @@ const Todo = () => {
     <section className={css.section}>
       <div className="container">
         <h1 className={css.title}>Todo app</h1>
+        <TodoForm addTodo={addTodo} />
         <TodoList
           todoData={todoData}
           deleteTodo={deleteTodo}

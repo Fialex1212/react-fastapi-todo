@@ -3,6 +3,11 @@ import css from "./styles.module.css";
 
 const TodoList = ({ todoData, deleteTodo, updateTodo }) => {
   const [show, setShow] = useState(false);
+
+  if (!Array.isArray(todoData)) {
+    return <p>No todos available.</p>;
+  }
+
   return (
     <ul className={css.todo__list}>
       {todoData.map(({ id, title, description, isCompleted }) => (

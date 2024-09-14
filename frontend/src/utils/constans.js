@@ -1,1 +1,1 @@
-export const PORT = import.meta.env.LOCAL_PORT;
+export const PORT = import.meta.env.VITE_PORT;

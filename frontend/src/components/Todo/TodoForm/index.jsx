@@ -1,7 +1,7 @@
 import {useState} from "react";
 import css from "./styles.module.css";
 
-const TodoForm = () => {
+const TodoForm = ({addTodo}) => {
   const [formData, setFormData] = useState({
     title: "",
     description: "",
@@ -19,7 +19,7 @@ const TodoForm = () => {
   //Function for not reload site and clear input after submit
   const handleSubmit = (event) => {
     event.preventDefault();
-    addTodo();
+    addTodo(formData);
 
     setFormData({
       title: "",
