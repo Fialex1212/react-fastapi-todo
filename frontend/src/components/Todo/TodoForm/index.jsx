@@ -28,7 +28,7 @@ const TodoForm = ({addTodo}) => {
   };
 
   return (
-    <form action="" className={css.form} onSubmit={handleSubmit}>
+    <form className={css.form} onSubmit={handleSubmit}>
       <input
         className={css.form__input}
         type="text"

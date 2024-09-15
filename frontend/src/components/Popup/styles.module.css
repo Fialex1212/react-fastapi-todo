@@ -1,12 +1,22 @@
-.popup{
+.overlay{
     position: fixed;
     top: 0;
-    right: 0;
-    bottom: 0;
     left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 8; /* Ensure it appears above other content */
+}
+
+.popup{
+    padding: 10px;
     display: none;
     justify-content: center;
     align-items: center;
+    z-index: 10;
 }
 
 .popup__active{

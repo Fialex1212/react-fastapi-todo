@@ -53,10 +53,13 @@ const Todo = () => {
   };
 
   //Function for udpate todo
-  const updateTodo = async (id) => {
+  const updateTodo = async (id, formData) => {
     try {
-      const response = await axios.put(`${PORT}/todo/update/${id}`);
-      console.log(response.data);
+      const response = await axios
+        .put(`${PORT}/todo/update/${id}`, formData)
+        .then(() => {
+          loadTodos();
+        });
     } catch (error) {
       console.error("Error: ", error);
       toast.error("Something went wrong: ", error);
