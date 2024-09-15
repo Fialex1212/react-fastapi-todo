@@ -1,4 +1,6 @@
 .form{
+    background-color: #333333;
+    border-radius: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -10,31 +12,34 @@
 }
 
 .form__input{
-    border-radius: 8px;
-    border: 1px solid transparent;
-    padding: 6px 12px;
+    border-radius: 30px;
+    border: 2px solid #5a5a5a;
+    padding: 12px;
     font-size: 24px;
     font-weight: 500;
     font-family: inherit;
-    background-color: #707070;
     cursor: pointer;
     transition: border-color 0.25s;
     width: 400px;
     height: 70px;
 }
 
+.form__input:nth-child(2){
+    height: 200px;
+    resize: none;
+}
+
 .form__input::placeholder{
-    color: #ffffffb6;
+    color: #5a5a5a;
 }
 
 .form__button{
-    border-radius: 8px;
-    border: 1px solid transparent;
+    border-radius: 30px;
+    border: 2px solid #5a5a5a;
     padding: 6px 12px;
     font-size: 24px;
     font-weight: 500;
     font-family: inherit;
-    background-color: #707070;
     cursor: pointer;
     transition: border-color 0.25s;
     width: 200px;

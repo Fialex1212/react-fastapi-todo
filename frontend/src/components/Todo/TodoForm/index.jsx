@@ -37,7 +37,7 @@ const TodoForm = ({addTodo}) => {
         onChange={handleInputChange}
         name="title"
       />
-      <input
+      <textarea
         className={css.form__input}
         type="text"
         placeholder="Enter a description of todo"
