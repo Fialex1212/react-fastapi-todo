@@ -1,9 +1,6 @@
 from fastapi.middleware.cors import CORSMiddleware
 
-origins = [
-    "http://localhost:5173",
-    "http://localhost:5173/"
-]
+origins = ['*']
 
 def add_cors(app):
     app.add_middleware(

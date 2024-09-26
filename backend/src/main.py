@@ -8,7 +8,7 @@ create_tables()
 app = FastAPI()
 add_cors(app)
 
-app.include_router(todos_router, prefix="/todo", tags=["todos"])
+app.include_router(todos_router, prefix="/api/todo", tags=["todos"])
 
 @app.get("/")
 async def root():

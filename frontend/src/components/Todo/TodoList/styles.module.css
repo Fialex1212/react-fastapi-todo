@@ -1,6 +1,6 @@
 .todo__list{
     display: grid;
-    justify-: center;
+    justify-items: center;
     grid-template-columns: repeat(3, 1fr);
 }
 
@@ -9,7 +9,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #333333;
+    background-color: var(--bcg-blocks);
     border-radius: 8px;
     border: 1px solid transparent;
     margin-bottom: 40px;
@@ -30,7 +30,7 @@
 .todo__text{
     display: flex;
     flex-direction: column;
-    font-size: 22px;
+    font-size: var(--fz-middle);
     margin-right: auto;
     padding-bottom: 50px;
 }
@@ -38,7 +38,7 @@
 .todo__description{
     width: 100%;
     max-width: 320px;
-    font-size: 18px;
+    font-size: var(--fz-small);
     word-wrap: break-word;
 }
 
@@ -70,3 +70,16 @@
     color: #ff2828;
 }
 
+@media screen and (max-width: 1240px) {
+    .todo__list{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 768px){
+    .todo__list{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}

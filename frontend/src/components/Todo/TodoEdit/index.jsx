@@ -38,7 +38,7 @@ const TodoEdit = ({ item, updateTodo }) => {
       </button>
       <Popup show={show} setShow={setShow}>
         <form className={css.form}>
-          <button className={css.form__close} onClick={() => setShow(false)}><MdClose color="#000" size={40} /></button>
+          <button className={css.form__close} onClick={() => setShow(false)}><MdClose className={css.form__close_btn} size={40} /></button>
           <label>
             <input
               className={css.form__input}

@@ -1,18 +1,3 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgb(255, 255, 255);
-  background-color: #161616;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 * {
 	padding: 0px;
 	margin: 0px;
@@ -95,8 +80,27 @@ legend {
 	display: block;
 }
 
-body{
+
+:root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  --white: #ffffff;
+  --black: #000000;
+  --bcg-primary: #161616;
+  --bcg-blocks: #333333;
+  --border-crl: #5a5a5a;
+
+  --fz-title: 64px;
+  --fz-small: 18px;
+  --fz-middle: 24px;
+
+}
+
+body{
+  background-color: var(--bcg-primary);
+  color: var(--white);
 }
 
 .container{
@@ -105,5 +109,7 @@ body{
   width: 100%;
   margin: 0 auto;
 }
+
+
 
 

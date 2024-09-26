@@ -1,11 +1,13 @@
 .form{
+    position: relative;
     padding: 20px;
     width: 100%;
-    background-color: #b8b8b8;
+    background-color: var(--bcg-blocks);
     display: flex;
     flex-direction: column;
     align-items: center;
     border-radius: 10px;
+    padding-top: 50px;
 }
 
 .form:first-child{
@@ -19,7 +21,7 @@
     font-size: 24px;
     font-weight: 500;
     font-family: inherit;
-    background-color: #707070;
+    border: 2px solid var(--border-crl);
     cursor: pointer;
     transition: border-color 0.25s;
     width: 400px;
@@ -28,13 +30,12 @@
 }
 
 .form__button{
-    border-radius: 8px;
-    border: 1px solid transparent;
+    border-radius: 30px;
+    border: 2px solid var(--border-crl);
     padding: 6px 12px;
-    font-size: 24px;
+    font-size: var(--fz-middle);
     font-weight: 500;
     font-family: inherit;
-    background-color: #707070;
     cursor: pointer;
     transition: border-color 0.25s;
     width: 200px;
@@ -42,14 +43,21 @@
 }
 
 .form__close{
+    position: absolute;
     cursor: pointer;
     width: 40px;
     height: 40px;
+    right: 0;
+    top: 5px;
+}
+
+.form__close_btn{
+    color: var(--white);
 }
 
 .todo__edit{
-    background-color: white;
-    color: black;
+    background-color: var(--white);
+    color: var(--black);
     border-radius: 30px;
     padding: 10px 30px;
     cursor: pointer;
