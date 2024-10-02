@@ -9,8 +9,6 @@ A simple Todo application using **React(vite)** and **Django** for task manageme
 - Deleting tasks.
 - Marking tasks as completed.
 
-
-
 ## Installation
 
 Clone my project
@@ -36,9 +34,7 @@ Run the backend
   .\venv\scripts\activate
   pip install requirements.txt
   uvicorn src.main:app
-```
-    
-## API Reference
+```## API Reference
 
 ### Create a todo
 
@@ -174,10 +170,19 @@ Run the backend
   "updated_at": "2024-09-26T15:40:37.044667"
 }
 ```
+## Screenshots
 
+### Desktop
+![App Screenshot](./images/1.jgp)
+
+### table
+![App Screenshot](./images/2.jgp)
+
+### mobile
+![App Screenshot](./images/3.jgp)
 
 
 ## Authors
 
-- [@Fialex1212](https://github.com/Fialex1212)
+- [@Aleks Seriakov](https://github.com/Fialex1212)
 
