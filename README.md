@@ -173,13 +173,13 @@ Run the backend
 ## Screenshots
 
 ### Desktop
-![App Screenshot](./images/1.jgp)
+![Desktop app Screenshot](./images/1.jpg)
 
-### table
-![App Screenshot](./images/2.jgp)
+### Table
+![Table app Screenshot](./images/2.jpg)
 
-### mobile
-![App Screenshot](./images/3.jgp)
+### Mobile
+![Mobile app Screenshot](./images/3.jpg)
 
 
 ## Authors
